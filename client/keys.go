@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/coreos/etcd/pkg/pathutil"
+	"go.etcd.io/etcd/pkg/pathutil"
 )
 
 const (
