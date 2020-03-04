@@ -392,6 +392,8 @@ func (b *healthBalancer) notifyAddrs(msg notifyMsg) {
 }
 
 func (b *healthBalancer) Up(addr grpc.Address) func(error) {
+
+	fmt.Printf("pppp %s", debug.Stack())
 	if !b.mayPin(addr) {
 		return func(err error) {}
 	}
