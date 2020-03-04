@@ -22,6 +22,7 @@ import (
 	"fmt"
 	"net"
 	"sync"
+	"runtime/debug"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/codes"
@@ -155,6 +156,7 @@ type roundRobin struct {
 }
 
 func (rr *roundRobin) watchAddrUpdates() error {
+	fmt.Printf("%s", debug.Stack())
 	updates, err := rr.w.Next()
 	if err != nil {
 		grpclog.Warningf("grpc: the naming watcher stops working due to %v.", err)
