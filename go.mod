@@ -54,4 +54,3 @@ require (
 	gopkg.in/yaml.v2 v2.0.0-20170407172122-cd8b52f8269e
 )
 
-go 1.13
