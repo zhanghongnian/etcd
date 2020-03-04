@@ -353,6 +353,7 @@ func (b *healthBalancer) updateNotifyLoop() {
 }
 
 func (b *healthBalancer) notifyAddrs(msg notifyMsg) {
+	fmt.Printf("---- %+v \n", notifyMsg)
 	if msg == notifyNext {
 		select {
 		case b.notifyCh <- []grpc.Address{}:
