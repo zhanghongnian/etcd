@@ -239,7 +239,9 @@ func (b *healthBalancer) updateUnhealthy() {
 		case <-time.After(b.healthCheckTimeout):
 			b.cleanupUnhealthy()
 			pinned := b.pinned()
+			println(11111111)
 			if pinned == "" || b.isUnhealthy(pinned) {
+				println(2222222)
 				select {
 				case b.updateAddrsC <- notifyNext:
 				case <-b.stopc:
@@ -284,6 +286,7 @@ func (b *healthBalancer) next() {
 	b.mu.RLock()
 	downc := b.downc
 	b.mu.RUnlock()
+	println(33333333)
 	select {
 	case b.updateAddrsC <- notifyNext:
 	case <-b.stopc:
@@ -315,6 +318,7 @@ func (b *healthBalancer) updateNotifyLoop() {
 		}
 		switch {
 		case downc == nil && upc == nil:
+			print("aaaaaaa")
 			// stale
 			select {
 			case <-b.stopc:
@@ -322,6 +326,7 @@ func (b *healthBalancer) updateNotifyLoop() {
 			default:
 			}
 		case downc == nil:
+			print("bbbbbbbb")
 			b.notifyAddrs(notifyReset)
 			select {
 			case <-upc:
@@ -353,7 +358,7 @@ func (b *healthBalancer) updateNotifyLoop() {
 }
 
 func (b *healthBalancer) notifyAddrs(msg notifyMsg) {
-	fmt.Printf("---- %+v \n", notifyMsg)
+	fmt.Printf("---- %+v \n", msg)
 	if msg == notifyNext {
 		select {
 		case b.notifyCh <- []grpc.Address{}:
@@ -373,6 +378,7 @@ func (b *healthBalancer) notifyAddrs(msg notifyMsg) {
 		waitDown = !ok
 	}
 
+	fmt.Printf("----2 %+v \n", addrs)
 	select {
 	case b.notifyCh <- addrs:
 		if waitDown {

@@ -6,7 +6,7 @@ require (
 	github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
 	github.com/bgentry/speakeasy v0.1.0
 	github.com/coreos/bbolt v1.3.1-coreos.6
-	github.com/coreos/etcd v3.3.13+incompatible
+	github.com/coreos/etcd v3.3.18+incompatible
 	github.com/coreos/go-semver v0.2.0
 	github.com/coreos/go-systemd v0.0.0-20170731111925-d21964639418
 	github.com/coreos/pkg v0.0.0-20160727233714-3ac0863d7acf
@@ -18,6 +18,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20160516000752-02826c3e7903
 	github.com/golang/protobuf v1.2.0
 	github.com/google/btree v0.0.0-20161005200959-925471ac9e21
+	github.com/google/uuid v1.1.1 // indirect
 	github.com/gorilla/websocket v0.0.0-20170926233335-4201258b820c
 	github.com/grpc-ecosystem/go-grpc-middleware v1.0.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v0.0.0-20170826090648-0dafe0d496ea
@@ -44,6 +45,7 @@ require (
 	github.com/ugorji/go v0.0.0-20171019201919-bdcc60b419d1
 	github.com/urfave/cli v1.18.0
 	github.com/xiang90/probing v0.0.0-20160813154853-07dd2e8dfe18
+	go.etcd.io/etcd v3.3.18+incompatible
 	go.uber.org/atomic v1.3.1
 	go.uber.org/multierr v1.1.0
 	go.uber.org/zap v1.7.1
@@ -52,5 +54,6 @@ require (
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
 	google.golang.org/grpc v1.21.0
 	gopkg.in/cheggaaa/pb.v1 v1.0.2
-	gopkg.in/yaml.v2 v2.0.0-20170407172122-cd8b52f8269e
+	gopkg.in/yaml.v2 v2.2.8
+	sigs.k8s.io/yaml v1.2.0 // indirect
 )
