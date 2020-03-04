@@ -1,4 +1,4 @@
-module github.com/YunzhanghuOpen/etcd
+module github.com/zhanghongnian/etcd
 
 go 1.12
 
@@ -53,4 +53,3 @@ require (
 	gopkg.in/cheggaaa/pb.v1 v1.0.2
 	gopkg.in/yaml.v2 v2.0.0-20170407172122-cd8b52f8269e
 )
-
