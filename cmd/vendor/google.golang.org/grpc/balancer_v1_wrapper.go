@@ -113,9 +113,10 @@ func (bw *balancerWrapper) lbWatcher() {
 		return
 	}
 	grpclog.Infof("balancerWrapper: ============: %T\n", notifyCh)
+	fmt.Printf("balancerWrapper: ============: %T\n", notifyCh)
 
 	for addrs := range notifyCh {
-		grpclog.Infof("balancerWrapper: ============: %T\n", bw.balancer)
+		fmt.Printf("balancerWrapper: ============: %T\n", bw.balancer)
 		grpclog.Infof("balancerWrapper: got update addr from Notify: %v\n", addrs)
 		if bw.pickfirst {
 			var (
