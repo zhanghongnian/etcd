@@ -111,6 +111,7 @@ func (bw *balancerWrapper) lbWatcher() {
 		}
 		return
 	}
+	grpclog.Infof("balancerWrapper: ============: %T\n", notifyCh)
 
 	for addrs := range notifyCh {
 		grpclog.Infof("balancerWrapper: got update addr from Notify: %v\n", addrs)

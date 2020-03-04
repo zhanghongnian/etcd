@@ -21,6 +21,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"fmt"
+	"runtime/debug"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -329,6 +331,8 @@ func (b *healthBalancer) updateNotifyLoop() {
 				return
 			}
 		case upc == nil:
+			fmt.Printf("==== %+v \n", addr)
+			fmt.Printf("%s", debug.Stack())
 			select {
 			// close connections that are not the pinned address
 			case b.notifyCh <- []grpc.Address{{Addr: addr}}:
