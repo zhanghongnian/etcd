@@ -89,6 +89,7 @@ type balancerWrapper struct {
 func (bw *balancerWrapper) lbWatcher() {
 	<-bw.startCh
 	grpclog.Infof("balancerWrapper: is pickfirst: %v\n", bw.pickfirst)
+	grpclog.Infof("balancerWrapper: ============: %T\n", bw.balancer)
 	notifyCh := bw.balancer.Notify()
 	if notifyCh == nil {
 		// There's no resolver in the balancer. Connect directly.
