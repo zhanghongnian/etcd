@@ -70,22 +70,26 @@ type gRPCWatcher struct {
 // there is no way to reconcile the update ordering.
 func (gw *gRPCWatcher) Next() ([]*naming.Update, error) {
 	if gw.wch == nil {
+		println("dd 11111111")
 		// first Next() returns all addresses
 		return gw.firstNext()
 	}
+	println("dd 2222222")
 	if gw.err != nil {
 		return nil, gw.err
 	}
-
+	println("dd 3333333")
 	// process new events on target/*
 	wr, ok := <-gw.wch
 	if !ok {
 		gw.err = status.Error(codes.Unavailable, ErrWatcherClosed.Error())
 		return nil, gw.err
 	}
+	println("dd 4444444")
 	if gw.err = wr.Err(); gw.err != nil {
 		return nil, gw.err
 	}
+	println("dd 5555555")
 
 	updates := make([]*naming.Update, 0, len(wr.Events))
 	for _, e := range wr.Events {
