@@ -113,7 +113,8 @@ func (gw *gRPCWatcher) Next() ([]*naming.Update, error) {
 func (gw *gRPCWatcher) firstNext() ([]*naming.Update, error) {
 	// Use serialized request so resolution still works if the target etcd
 	// server is partitioned away from the quorum.
-	println("dd 666666", gw.target, gw.c.Endpoints())
+	println("dd 666666", gw.target)
+	fmt.Printf("%+v\n", gw.c.Endpoints())
 	resp, err := gw.c.Get(gw.ctx, gw.target, etcd.WithPrefix(), etcd.WithSerializable())
 	if gw.err = err; err != nil {
 		return nil, err
