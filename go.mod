@@ -6,7 +6,7 @@ require (
 	github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
 	github.com/bgentry/speakeasy v0.1.0
 	github.com/coreos/bbolt v1.3.1-coreos.6
-	github.com/coreos/etcd v3.3.18+incompatible
+	github.com/coreos/etcd v3.3.12+incompatible
 	github.com/coreos/go-semver v0.2.0
 	github.com/coreos/go-systemd v0.0.0-20170731111925-d21964639418
 	github.com/coreos/pkg v0.0.0-20160727233714-3ac0863d7acf
