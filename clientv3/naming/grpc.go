@@ -124,6 +124,7 @@ func (gw *gRPCWatcher) firstNext() ([]*naming.Update, error) {
 	}
 
 	opts := []etcd.OpOption{etcd.WithRev(resp.Header.Revision + 1), etcd.WithPrefix(), etcd.WithPrevKV()}
+	println("-=-=-=-=-=-", gw.target)
 	gw.wch = gw.c.Watch(gw.ctx, gw.target, opts...)
 	return updates, nil
 }
